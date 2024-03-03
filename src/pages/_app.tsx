@@ -1,5 +1,6 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 import type { AppProps } from "next/app";
+import { Provider } from "react-redux";
 
 export const counterSlice = createSlice({
   name: "counter",
@@ -37,5 +38,5 @@ export const store = configureStore({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return <Provider store={store}> <Component {...pageProps} /></Provider>;
 }
